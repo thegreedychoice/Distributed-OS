@@ -16,7 +16,8 @@ defmodule Project1.BitcoinMiner do
 	end
 
 	def print_args(args) do
-		IO.puts args
+		IO.puts 
+		
 	end
 
 	def get_hash(value) do
