@@ -1,18 +1,8 @@
 defmodule ExMessenger do
-  @moduledoc """
-  Documentation for ExMessenger.
-  """
+  use Application
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> ExMessenger.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def start(_type, _args) do
+    ExMessenger.Supervisor.start_link
   end
+  
 end
