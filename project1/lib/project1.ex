@@ -1,4 +1,5 @@
 defmodule Project1 do
+  use Application
   @moduledoc """
   Documentation for Project1.
   """
@@ -14,5 +15,21 @@ defmodule Project1 do
   """
   def hello do
     :world
+  end
+
+
+
+  def start(_type, _args) do
+    BitcoinMiner.Supervisor.start_link(name: BitcoinMiner.Supervisor)
+  end
+
+end
+
+defmodule Benchmark do
+  def measure(function) do
+    function
+    |> :timer.tc
+    |> elem(0)
+    |> Kernel./(1_000_000)
   end
 end

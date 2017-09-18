@@ -12,8 +12,14 @@ defmodule Project1Test do
   end
 
   test "Hash Leading Zeros" do
-  	value = SHA-256 do
-  		assert Project1.BitcoinMiner.get_zeros(value) == 1
+  	value = "62b35d71cbcd23b4fd2c5f0360b4d6510ee244272fb40966ddbe47479810b4dc" 
+  		assert Project1.BitcoinMiner.get_leading_zeros(value |> String.graphemes, 0) == 0
   	end
+
+  test "test process" do
+	for i <- 0..10, do:
+	spawn(fn -> Project1.BitcoinMiner.start_process(1) end)
+		
   end
+
 end
